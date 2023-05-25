@@ -66,6 +66,10 @@ jobs:
         run: west init -l config
       - name: West Update
         run: west update
+      - name: Checkout 3.0
+        run: cd zephyr && git checkout v3.0.0 && cd ..
+      - name: West update with zephyr 3.0
+        run: west update
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (${{ steps.variables.outputs.display-name }})
